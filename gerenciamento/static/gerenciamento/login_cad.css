@@ -1,4 +1,34 @@
 #logo{
     font-size: 5rem;
-    color: #0FBAC7;
+    color: #303030;
+}
+
+#logowhite{
+    font-size: 5rem;
+    color: #fff;
+}
+
+#welcome{
+    margin: 20px 0;
+    color: #fff;
+}
+
+.logar{
+    height: 100vh;
+    background-color: #303030;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#container{
+    width: 100%;
+}
+
+.cadastrar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

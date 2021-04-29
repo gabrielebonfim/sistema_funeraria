@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Cliente(models.Model):
     nome = models.CharField('Nome', max_length=255)
     sobrenome = models.CharField('Sobrenome', max_length=255)

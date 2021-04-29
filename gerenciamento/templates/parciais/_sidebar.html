@@ -17,9 +17,11 @@
 </nav>
 
 <nav class="sidebar col-1 shadow-sm text-center">
-    <a href="" ><i class="fas fa-home" data-toggle="tooltip" data-placement="right" title="Página Inicial"></i></a>
-    <a href=""><i class="fas fa-money-bill-wave"data-toggle="tooltip" data-placement="right" title="Realizar venda"></i></a>
-    <a href=""><i class="fas fa-archive" data-toggle="tooltip" data-placement="right" title="Emitir relatórios"></i></a>
-    <a href=""><i class="fas fa-sign-out-alt" data-toggle="tooltip" data-placement="right" title="Sair"></i></a>
+    <a href="{% url 'dashboard' %}" ><i class="fas fa-home" data-toggle="tooltip" data-placement="right" title="Página Inicial"></i></a>
+    <a href="{% url 'venda' %}"><i class="fas fa-money-bill-wave"data-toggle="tooltip" data-placement="right" title="Realizar venda"></i></a>
+    <a href="{% url 'cadastros' %}" ><i class="far fa-file-alt" data-toggle="tooltip" data-placement="right" title="Realizar Cadastros"></i></a>
+    <a href="{% url 'relatorios' %}"><i class="fas fa-archive" data-toggle="tooltip" data-placement="right" title="Emitir relatórios"></i></a>
+    <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt" data-toggle="tooltip" data-placement="right" title="Sair"></i></a>
 
 </nav>
+

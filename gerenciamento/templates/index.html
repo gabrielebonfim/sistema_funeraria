@@ -1,6 +1,47 @@
 {% extends 'base.html' %}
+{% load static %}
 {%block conteudo %}
 
-<h1 class="display-4">oi</h1>
+<link rel="stylesheet" href="{% static 'gerenciamento/login_cad.css' %}">
+<div class="row" id="container">
+    <div class="logar col-4">
+        <header class="text-center" id="welcome">
+            <i class="fas fa-dove mb-2" id="logowhite"></i>
+            <h4>Descanso de Paz</h4>
+            <p class="lead">Já é cadastrado?</p>
+            <a href="{% url 'login'%}" class="d-grid gap-1">
+                <input type="submit" value="Login" id="enviar" class="btn mysecond"></input>
+            </a>
+        </header>
+    </div>
+
+    <div class="cadastrar col-8">
+        <form method='POST' class="col-5">
+            {% csrf_token %}
+            
+            <h1>Faça seu cadastro</h1>
+            <p class="lead mb-4">Insira seus dados corretamente</p>
+
+            <div class="form-group mb-3">
+                <input type='text' name='username' class="form-control form-control-lg" placeholder="&#xf007;  Nome de usuário" style="font-family: 'Montserrat', 'Font Awesome 5 Free'; font-weight: 600;">
+            </div>
+    
+            <div class="form-group mb-3">
+                <input type='text' name='username' class="form-control form-control-lg" placeholder="&#xf0e0;  E-mail" style="font-family: 'Montserrat', 'Font Awesome 5 Free'; font-weight: 600;">
+            </div>
+            
+            <div class="form-group mb-3">
+                <input type='password' name='password1' class="form-control form-control-lg fas fa-lock" placeholder="&#xf023;  Senha" style="font-family: 'Montserrat', 'Font Awesome 5 Free'; font-weight: 600;">
+            </div>
+
+            <div class="form-group mb-3">
+                <input type='password' name='password2' class="form-control form-control-lg fas fa-lock" placeholder="&#xf023;  Confirme sua senha" style="font-family: 'Montserrat', 'Font Awesome 5 Free'; font-weight: 600;">
+            </div>
+            <div class="d-grid gap-1">
+                <input type="submit" value="Enviar" id="enviar" class="btn btn-primar myprimary btn-block btn-lg"></input>
+            </div>
+        </form>
+    </div>
+</div>
 
 {%endblock%}
