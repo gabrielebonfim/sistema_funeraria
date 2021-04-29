@@ -1,0 +1,29 @@
+.mynavbar a{
+    color: #fff;
+}
+.mynavbar{
+    padding-right: 20px;
+    color: #fff !important;
+}
+#logo{
+    font-size: 2rem;
+    margin: 0 40px;
+}
+
+.sidebar{
+    height: 90vh;
+    display: fixed;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar a{
+    color: #303030;
+}
+
+.sidebar i{
+    font-size: 2rem;
+    margin: 40px 0;
+}

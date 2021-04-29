@@ -1,0 +1,25 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'gerenciamento/sidebar.css' %}">
+
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark mynavbar">
+    <a class="navbar-brand" href="#">
+        <i class="fas fa-dove mb-2 logo d-inline-block align-top" id="logo"></i>
+        <small>DESCANSO DE PAZ</small>
+    </a>
+
+    <ul class="navbar-nav">
+        <li class="nav-item active">
+            <i class="fas fa-user" id="user"></i> {{ user }}
+        </li>
+    </ul>
+</nav>
+
+<nav class="sidebar col-1 shadow-sm text-center">
+    <a href="" ><i class="fas fa-home" data-toggle="tooltip" data-placement="right" title="Página Inicial"></i></a>
+    <a href=""><i class="fas fa-money-bill-wave"data-toggle="tooltip" data-placement="right" title="Realizar venda"></i></a>
+    <a href=""><i class="fas fa-archive" data-toggle="tooltip" data-placement="right" title="Emitir relatórios"></i></a>
+    <a href=""><i class="fas fa-sign-out-alt" data-toggle="tooltip" data-placement="right" title="Sair"></i></a>
+
+</nav>

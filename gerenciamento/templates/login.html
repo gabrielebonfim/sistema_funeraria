@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block conteudo %}
+<link rel="stylesheet" href="{% static 'gerenciamento/login_cad.css' %}">
+<div class="container-fluid">
+    <form method='POST' class="card shadow-sm rounded p-3">
+        <header class="text-center">
+            <i class="fas fa-dove mb-2" id="logo"></i>
+            <h6>Descanso de Paz</h6>
+            <p class="lead">Faça seu Login</p>
+        </header>
+        {% csrf_token %}
+        
+        <div class="form-group mb-3">
+            <label for='username'>Nome de usuário:</label>
+            <input type='text' name='username' class="form-control" placeholder="Seu nome de usuário">
+        </div>
+
+        <div class="form-group mb-3">
+            <label for='password'>Senha:</label>
+            <input type='password' name='password' class="form-control" placeholder="Sua senha">
+            <small><a href="/reset_password">Faça seu cadastro</a></small>
+        </div>
+        <input type="submit" value="Enviar" id="enviar" class="btn btn-primar myprimary btn-block"></input>
+    </form>
+</div>
+{%endblock%}
