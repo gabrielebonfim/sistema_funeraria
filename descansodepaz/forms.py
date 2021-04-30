@@ -21,8 +21,13 @@ class FalecidoForm(ModelForm):
         model = Falecido
         fields = ["nome", "sobrenome", "cpf", "data_ncto", "data_obito"]
 
+class ServicoForm(ModelForm):
+    class Meta:
+        model = Servico
+        fields = ["nome", "preco"]
+
 
 class VendaForm(ModelForm):
     class Meta:
         model = Venda
-        fields = ["forma_pag", "cliente", "falecido", "servicos"],
+        fields = ["forma_pag", "cliente", "falecido", "servicos"]

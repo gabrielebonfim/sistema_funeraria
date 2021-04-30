@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{%block conteudo %}
+{% include 'parciais/_sidebar.html' %}
+<div class="container">
+    <h1 class="display-4">Cadastrar Serviço</h1>
+    <form method='POST' class="col-7">
+        {% csrf_token %}
+    
+        <p class="lead">Insira os dados do Serviço</p>
+        <a href="{% url 'venda'%}"> Serviço já cadastrado? avançar para Venda</a>
+
+        <div class="form-group mb-3">
+            <input type='text' name='nome' class="form-control col-2" placeholder="Nome do Serviço">
+        </div>
+
+        <div class="form-group mb-3">
+            <input type="number" step="0.01" name='preco' class="form-control col-6" placeholder="Preço">
+        </div>
+
+        <div class="d-grid gap-1">
+            <input type="submit" value="Enviar" id="enviar" class="btn btn-primar myprimary btn-block btn-lg"></input>
+        </div>
+    </form>
+</div>
+
+
+
+{%endblock%}

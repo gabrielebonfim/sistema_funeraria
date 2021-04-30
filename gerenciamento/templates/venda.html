@@ -3,6 +3,7 @@
 {% include 'parciais/_sidebar.html' %}
 <div class="container">
     <h1 class="display-4">Venda</h1>
+    <a href="{% url 'clientes'%}"> Cliente e/ou falecidos não disponíveis? Faça o cadastro</a>
     <form method='POST' class="col-7">
         {% csrf_token %}
         <div class="form-group mb-3 mt-3">
@@ -34,7 +35,7 @@
         </div>
 
         <div class="d-grid gap-1">
-            <input type="submit" value="Enviar" id="enviar" class="btn btn-primar myprimary btn-block btn-lg"></input>
+            <input type="submit" value="Finalizar Venda" id="enviar" class="btn btn-primar myprimary btn-block btn-lg"></input>
         </div>
     </form>
 </div>

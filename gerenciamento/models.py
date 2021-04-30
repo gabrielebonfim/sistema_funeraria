@@ -43,7 +43,7 @@ class Venda(models.Model):
     cliente = models.ForeignKey(Cliente, verbose_name='Cliente', on_delete=models.PROTECT)
     falecido = models.ForeignKey(Falecido, verbose_name='Falecido', on_delete=models.PROTECT)
     servicos = models.ManyToManyField(Servico, verbose_name='Serviços prestados')
-    valor_total = models.DecimalField('Valor total', decimal_places=2, max_digits=10)
+    total = models.DecimalField('Valor total', decimal_places=2, max_digits=10)
     
     @property
     def valor_total():

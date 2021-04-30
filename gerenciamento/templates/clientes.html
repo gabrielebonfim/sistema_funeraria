@@ -8,6 +8,7 @@
         {% csrf_token %}
     
         <p class="lead mb-4">Insira os dados do cliente</p>
+        <a href="{% url 'falecidos'%}"> Cliente já cadastrado? Avançar para Falecidos</a>
 
         <div class="form-group mb-3">
             <input type='text' name='nome' class="form-control col-2" placeholder="Nome">

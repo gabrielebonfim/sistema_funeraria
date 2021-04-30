@@ -82,9 +82,19 @@ def clientes(request):
 
     return render(request,'clientes.html')
 
-
 def servicos(request):
-    return render(request,'index.html')
+    if request.method == 'POST':
+        form = ServicoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Servico cadastrado com sucesso')
+            return redirect('venda')
+    else:
+        messages.warning(request, 'Preencha os campos corretamente!')
+
+    return render(request,'servicos.html')
+
 
 def falecidos(request):
     if request.method == 'POST':
@@ -93,7 +103,7 @@ def falecidos(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Falecido cadastrado com sucesso')
-            return redirect('venda')
+            return redirect('servicos')
     else:
         messages.warning(request, 'Preencha os campos corretamente!')
 
