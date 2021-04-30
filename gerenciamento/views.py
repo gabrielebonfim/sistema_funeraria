@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password, check_password
 from django.contrib import messages
 from descansodepaz.forms import *
+from .models import *
 
 def index(request):
     if request.user.is_authenticated:
@@ -29,6 +30,7 @@ def index(request):
 def dashboard(request):
     return render(request,'dashboard.html')
 
+
 def loginPage(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -51,7 +53,7 @@ def loginPage(request):
 
 def logoutAction(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 
 
 def venda(request):
