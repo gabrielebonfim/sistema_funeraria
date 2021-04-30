@@ -43,3 +43,29 @@ a{
     width: 300px;
     border: none;
 }
+
+.container{
+    width: 70vw;
+    height: 85vh;
+    margin-top: 100px;
+}
+
+.container i{
+    font-size: 3rem;
+}
+
+.card2{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.card2 a{
+    color: #303030;
+}
+
+.card2 a:hover{
+    color: #808080;
+}

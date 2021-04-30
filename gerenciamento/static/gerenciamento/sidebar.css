@@ -12,7 +12,7 @@
 
 .sidebar{
     height: 90vh;
-    display: fixed;
+    position: fixed;
     background-color: #fff;
     display: flex;
     flex-direction: column;

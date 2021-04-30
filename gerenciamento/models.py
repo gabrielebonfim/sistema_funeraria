@@ -7,7 +7,6 @@ class Cliente(models.Model):
     email = models.CharField('E-mail', max_length=255)
     telefone = models.CharField('Telefone', max_length=11)
     endereco = models.CharField('Endereço', max_length=255)
-    data_cadastro = models.DateTimeField('Data de cadastro',auto_now_add=True)
     
     def __str__(self):
         return self.nome + ' ' + self.sobrenome
@@ -16,7 +15,6 @@ class Cliente(models.Model):
 class Servico(models.Model):
     nome = models.CharField('Nome do serviço', max_length=255)
     preco = models.DecimalField('Preço do serviço', decimal_places=2, max_digits=10)
-    data_cadastro = models.DateTimeField('Data de cadastro',auto_now_add=True)
     
     def __str__(self):
         return f'{self.nome} (R$ {self.preco})'
@@ -25,11 +23,9 @@ class Servico(models.Model):
 class Falecido(models.Model):
     nome = models.CharField('Nome', max_length=255)
     sobrenome = models.CharField('Sobrenome', max_length=255)
-    rg = models.CharField('RG', max_length=11)
     cpf = models.CharField('CPF', max_length=11)
     data_ncto = models.DateField('Data de Nascimento')
     data_obito = models.DateField('Data do Óbito')
-    data_cadastro = models.DateTimeField('Data de cadastro',auto_now_add=True)
     
     def __str__(self):
         return f'{self.nome} {self.sobrenome} ({self.data_ncto} – {self.data_obito})'
@@ -47,7 +43,6 @@ class Venda(models.Model):
     cliente = models.ForeignKey(Cliente, verbose_name='Cliente', on_delete=models.PROTECT)
     falecido = models.ForeignKey(Falecido, verbose_name='Falecido', on_delete=models.PROTECT)
     servicos = models.ManyToManyField(Servico, verbose_name='Serviços prestados')
-    data_cadastro = models.DateTimeField('Data da venda',auto_now_add=True)
     valor_total = models.DecimalField('Valor total', decimal_places=2, max_digits=10)
     
     @property

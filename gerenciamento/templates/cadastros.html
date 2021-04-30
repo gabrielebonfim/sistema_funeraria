@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{%block conteudo %}
+{% include 'parciais/_sidebar.html' %}
+<div class="container">
+    <h1 class="display-4">Cadastros</h1>
+    <div class="row">
+        <div class="card2 shadow rounded text-center col-3 m-3">
+            <a href="{% url 'clientes' %}">
+                <div class="card-body">
+                    <i class="fas fa-users mb-2"></i>
+                    <h5 class="card-title">Cadastrar Clientes</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card2 shadow rounded text-center col-3 m-3">
+            <a href="{% url 'falecidos' %}">
+                <div class="card-body">
+                    <i class="fas fa-bookmark mb-2"></i>
+                    <h5 class="card-title">Cadastrar Falecidos</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card2 shadow rounded text-center col-3 m-3">
+            <a href="{% url 'servicos' %}">
+                <div class="card-body">
+                    <i class="fas fa-clipboard mb-2"></i>
+                    <h5 class="card-title">Cadastrar Serviços</h5>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

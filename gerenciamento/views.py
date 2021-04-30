@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password, check_password
@@ -57,21 +58,43 @@ def logoutAction(request):
 
 
 def venda(request):
-    return render(request,'index.html')
+    return render(request,'venda.html')
 
 
 def cadastros(request):
-    return render(request,'index.html')
+    return render(request,'cadastros.html')
+
 
 def relatorios(request):
     return render(request,'index.html')
 
+
 def clientes(request):
-    return render(request,'index.html')
+    if request.method == 'POST':
+        form = ClienteForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Cliente cadastrado com sucesso')
+            return redirect('falecidos')
+    else:
+        messages.warning(request, 'Preencha os campos corretamente!')
+
+    return render(request,'clientes.html')
 
 
 def servicos(request):
     return render(request,'index.html')
 
 def falecidos(request):
-    return render(request,'index.html')
+    if request.method == 'POST':
+        form = FalecidoForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Falecido cadastrado com sucesso')
+            return redirect('venda')
+    else:
+        messages.warning(request, 'Preencha os campos corretamente!')
+
+    return render(request,'falecidos.html')
