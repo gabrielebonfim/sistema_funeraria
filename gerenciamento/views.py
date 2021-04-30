@@ -58,7 +58,8 @@ def logoutAction(request):
 
 
 def venda(request):
-    return render(request,'venda.html')
+    context = Veterinario.objects.all() #TODO: Pesquisar o uso de objects.all e saber oq puxaree
+    return render(request,'venda.html' {'veterinarios': context})
 
 
 def cadastros(request):
