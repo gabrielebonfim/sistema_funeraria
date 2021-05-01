@@ -66,8 +66,8 @@ def venda(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Venda efetuada com sucesso')
-    else:
-        messages.warning(request, 'Preencha os campos corretamente!')
+        else:
+            messages.warning(request, 'Preencha os campos corretamente!')
 
     return render(request,'venda.html', {'clientes': context})
 
@@ -88,8 +88,8 @@ def clientes(request):
             form.save()
             messages.success(request, f'Cliente cadastrado com sucesso')
             return redirect('falecidos')
-    else:
-        messages.warning(request, 'Preencha os campos corretamente!')
+        else:
+            messages.warning(request, 'Preencha os campos corretamente!')
 
     return render(request,'clientes.html')
 
@@ -101,8 +101,8 @@ def servicos(request):
             form.save()
             messages.success(request, f'Servico cadastrado com sucesso')
             return redirect('venda')
-    else:
-        messages.warning(request, 'Preencha os campos corretamente!')
+        else:
+            messages.warning(request, 'Preencha os campos corretamente!')
 
     return render(request,'servicos.html')
 
@@ -115,7 +115,7 @@ def falecidos(request):
             form.save()
             messages.success(request, f'Falecido cadastrado com sucesso')
             return redirect('servicos')
-    else:
-        messages.warning(request, 'Preencha os campos corretamente!')
+        else:
+            messages.warning(request, 'Preencha os campos corretamente!')
 
     return render(request,'falecidos.html')
