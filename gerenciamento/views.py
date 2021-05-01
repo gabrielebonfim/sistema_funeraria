@@ -58,8 +58,18 @@ def logoutAction(request):
 
 
 def venda(request):
-    context = Veterinario.objects.all() #TODO: Pesquisar o uso de objects.all e saber oq puxaree
-    return render(request,'venda.html' {'veterinarios': context})
+    context = Cliente.objects.all() #TODO: Deveria estar correlacionado à fk do model Venda?
+
+    if request.method == 'POST':
+        form = VendaForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Venda efetuada com sucesso')
+    else:
+        messages.warning(request, 'Preencha os campos corretamente!')
+
+    return render(request,'venda.html', {'clientes': context})
 
 
 def cadastros(request):
