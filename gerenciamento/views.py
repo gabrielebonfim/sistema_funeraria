@@ -58,7 +58,9 @@ def logoutAction(request):
 
 
 def venda(request):
-    context = Cliente.objects.all() #TODO: Deveria estar correlacionado à fk do model Venda?
+    clientes = Cliente.objects.all()
+    falecidos = Falecido.objects.all()
+    servicos = Servico.objects.all()
 
     if request.method == 'POST':
         form = VendaForm(request.POST)
@@ -66,10 +68,11 @@ def venda(request):
         if form.is_valid():
             form.save()
             messages.success(request, f'Venda efetuada com sucesso')
+            return redirect('dashboard')
         else:
             messages.warning(request, 'Preencha os campos corretamente!')
 
-    return render(request,'venda.html', {'clientes': context})
+    return render(request,'venda.html',  {'clientes': clientes, 'falecidos':falecidos, 'servicos':servicos})
 
 
 def cadastros(request):
@@ -94,6 +97,8 @@ def clientes(request):
     return render(request,'clientes.html')
 
 def servicos(request):
+    servicos = Servico.objects.all()
+
     if request.method == 'POST':
         form = ServicoForm(request.POST)
 
@@ -104,7 +109,7 @@ def servicos(request):
         else:
             messages.warning(request, 'Preencha os campos corretamente!')
 
-    return render(request,'servicos.html')
+    return render(request,'servicos.html', {'servicos': servicos})
 
 
 def falecidos(request):

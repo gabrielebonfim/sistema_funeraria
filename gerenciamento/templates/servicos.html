@@ -22,6 +22,14 @@
             <input type="submit" value="Enviar" id="enviar" class="btn btn-primar myprimary btn-block btn-lg"></input>
         </div>
     </form>
+
+    <h3 class="mt-5">Serviços já cadastrados</h3>
+    <ul>
+    {% for i in servicos %}
+    <li>{{ i.nome }} - {{ i.preco}} </li>
+    {%endfor%}
+    </ul>
+
 </div>
 
 

@@ -43,15 +43,28 @@ class Venda(models.Model):
     cliente = models.ForeignKey(Cliente, verbose_name='Cliente', on_delete=models.PROTECT)
     falecido = models.ForeignKey(Falecido, verbose_name='Falecido', on_delete=models.PROTECT)
     servicos = models.ManyToManyField(Servico, verbose_name='Serviços prestados')
-    total = models.DecimalField('Valor total', decimal_places=2, max_digits=10)
-    
-    @property
-    def valor_total():
-        servicos = self.servicos.all()
-        preco_total = 0.00
-        for servico in servicos:
-            preco_total += servico.preco
-        return preco_total
 
     def __str__(self):
-        return f'{self.id} - {self.cliente}'
+        return f'{self.id} {self.cliente} - {self.falecido}'
+
+
+
+
+
+
+
+
+
+
+    # total = models.DecimalField('Valor total', decimal_places=2, max_digits=10)
+    
+    # @property
+    # def valor_total():
+    #     servicos = self.servicos.all()
+    #     preco_total = 0.00
+    #     for servico in servicos:
+    #         preco_total += servico.preco
+    #     return preco_total
+
+    # def __str__(self):
+    #     return f'{self.id} - {self.cliente}'
