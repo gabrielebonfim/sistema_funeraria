@@ -7,8 +7,8 @@
     <div class="row">
     <form method='POST' class="col-7">
         {% csrf_token %}
-        <div class="form-group mb-3 mt-3">
-            <label for="forma-pag">Forma de pagamento</label>
+        <!-- <div class="form-group mb-3 mt-3">
+            <label">Forma de pagamento</label>
             <select class="form-control mb-3" id="forma-pag">
                 <option name='CC' value="CC" class="form-control col-2">Crédito</option>
                 <option name='CD' value="CD" class="form-control col-2">Débito</option>
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group mb-3 mt-3">
-            <label for="forma-pag">Cliente</label>
+            <label>Cliente</label>
             <select class="form-control mb-3" id="forma-pag">
                 {% for i in clientes%}
                 <option name='cliente' value="{{ i.id }}" class="form-control col-2">{{ i.nome }} {{ i.sobrenome }} - {{ i.cpf }}</option>
@@ -27,7 +27,7 @@
         </div>
 
         <div class="form-group mb-3 mt-3">
-            <label for="forma-pag">Falecido</label>
+            <label>Falecido</label>
             <select class="form-control mb-3" id="forma-pag">
                 {% for i in falecidos%}
                 <option name='falecido' value="{{ i.id }}" class="form-control col-2">{{ i.nome }} {{ i.sobrenome }} - {{ i.cpf }}</option>
@@ -43,8 +43,11 @@
                 {{ i.nome }} - R$ {{ i.preco }}
             </label><br>
             {%endfor%}
-        </div>
+        </div> -->
 
+        {{ form.as_p }}
+
+        {{ valor_total }}
         <div class="d-grid gap-1">
             <input type="submit" value="Finalizar Venda" id="enviar" class="btn btn-primar myprimary btn-block btn-lg"></input>
         </div>

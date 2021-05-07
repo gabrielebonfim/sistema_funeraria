@@ -29,7 +29,8 @@ def index(request):
     return render(request,'index.html')
 
 def dashboard(request):
-    return render(request,'dashboard.html')
+    vendas = Venda.objects.all().order_by('-id')
+    return render(request,'dashboard.html', {'vendas': vendas})
 
 
 def loginPage(request):
@@ -61,10 +62,9 @@ def venda(request):
     clientes = Cliente.objects.all()
     falecidos = Falecido.objects.all()
     servicos = Servico.objects.all()
+    form = VendaForm(request.POST)
 
     if request.method == 'POST':
-        form = VendaForm(request.POST)
-
         if form.is_valid():
             form.save()
             messages.success(request, f'Venda efetuada com sucesso')
@@ -72,7 +72,7 @@ def venda(request):
         else:
             messages.warning(request, 'Preencha os campos corretamente!')
 
-    return render(request,'venda.html',  {'clientes': clientes, 'falecidos':falecidos, 'servicos':servicos})
+    return render(request,'venda.html',  {'clientes': clientes, 'falecidos':falecidos, 'servicos':servicos,'form':form})
 
 
 def cadastros(request):

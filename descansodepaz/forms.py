@@ -27,7 +27,7 @@ class ServicoForm(ModelForm):
         fields = ["nome", "preco"]
 
 
-class VendaForm(ModelForm):
+class VendaForm(forms.ModelForm):
     class Meta:
         model = Venda
         fields = ["forma_pag", "cliente", "falecido", "servicos"]
